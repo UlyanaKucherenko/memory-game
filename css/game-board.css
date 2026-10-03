@@ -1,0 +1,82 @@
+.game-board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 540px;
+    margin: 0 auto;
+    padding: 24px;
+    background-color: var(--color-game-board-bg);
+    border-radius: 32px;
+    box-shadow: 0 12px 36px rgba(66, 53, 79, 0.08);
+    transition: padding 0.3s ease, border-radius 0.3s ease;
+}
+
+.game-board__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 16px;
+    width: 100%;
+    min-height: 500px;
+}
+
+.game-board__item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    list-style: none;
+}
+
+
+.game-board__item-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 18px;
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.2s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(121, 87, 151, 0.15);
+}
+
+.game-board__item-card.open {
+    transform: rotateY(180deg);
+    cursor: default;
+    box-shadow: 0 4px 10px rgba(121, 87, 151, 0.12);
+} 
+
+
+.game-board__item-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background-color: var(--color-card-back-bg);
+    backface-visibility: hidden;
+    transform: rotateY(0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.game-board__item-card-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.game-board__item-card-front img {
+    width: 72%;
+    height: 72%;
+    object-fit: contain;
+    pointer-events: none;
+}

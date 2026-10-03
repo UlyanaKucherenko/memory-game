@@ -1,0 +1,62 @@
+@import "./normalize.css";
+@import "./variables.css";
+@import "./buttons.css";
+@import "./dialog.css";
+@import "./game-board.css";
+
+.container {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 24px 16px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.header__btns {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-score {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 540px;
+    margin-bottom: 12px;
+    padding: 0 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+}
+
+.game-score__item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.game-score__item-value {
+    font-weight: 600;
+    color: var(--color-text-primary);
+}

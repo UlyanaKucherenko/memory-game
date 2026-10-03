@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+    --font-main: 'Inter', sans-serif;
+
+    --color-bg: #F2EDF5;
+    --color-text-primary: #42354F;
+    --color-text-secondary: #86798F;
+    --color-accent: #805B98;
+    --color-purple: #795797;
+    --color-white: #FFFFFF;
+    --color-button-hover: #6C4A82;
+    --color-button-active: #5E3F72;
+    --color-game-board-bg: #FAF5E8;
+    --color-card-front-bg: #B9A8C9;
+    --color-card-back-bg: #795797;
+    --color-card-pattern: #D1BBA7;
+
+    --size-main: 14px;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text-secondary);
+    font-family: var(--font-main);
+    font-size: var(--size-main);
+    font-weight: 400;
+    line-height: 1;
+}
+
+.primary-btn,
+.secondary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 28px;
+    font-family: var(--font-main);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 14px;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease,
+                border-color 0.2s ease,
+                color 0.2s ease,
+                transform 0.1s ease,
+                box-shadow 0.2s ease;
+}
+
+.primary-btn:active,
+.secondary-btn:active {
+    transform: translateY(1px);
+}
+
+.btn:disabled,
+.primary-btn:disabled,
+.secondary-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+    transform: none;
+    box-shadow: none;
+}
+
+.primary-btn svg,
+.secondary-btn svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.primary-btn {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    border: 1.5px solid var(--color-accent);
+}
+
+.primary-btn:hover {
+    background-color: var(--color-button-hover);
+    border-color: var(--color-button-hover);
+    color: var(--color-white);
+    box-shadow: 0 4px 12px rgba(128, 91, 152, 0.25);
+}
+
+.primary-btn:active {
+    background-color: var(--color-button-active);
+    border-color: var(--color-button-active);
+    box-shadow: none;
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: var(--color-accent);
+    border: 1.5px solid var(--color-accent);
+}
+
+.secondary-btn:hover {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-white);
+    box-shadow: 0 4px 12px rgba(128, 91, 152, 0.2);
+}
+
+.secondary-btn:active {
+    background-color: var(--color-button-active);
+    border-color: var(--color-button-active);
+    color: var(--color-white);
+    box-shadow: none;
+}

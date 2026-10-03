@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body>
+    <!-- dialog Win -->
+    <div class="dialog-box-shadow">
+        <dialog class="dialog dialog-win">
+            <div class="dialog__header">
+                <h2 class="dialog__header-title">You won!</h2>
+            </div>
+
+            <div class="dialog__body">
+                <div class="dialog__score">
+                    <span class="dialog__score-label">number of moves:</span>
+                    <span class="dialog__score-value">0</span>
+                </div>
+            </div>
+            <div class="dialog__footer">
+                <button class="dialog__btn-new primary-btn">
+                    <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    New Game
+                </button>
+                <button class="dialog__btn-close secondary-btn">Close</button>
+            </div>
+        </dialog>
+    </div>
+
+
+    <!-- dialog Leaderboard -->
+    <div class="dialog-box-shadow">
+        <dialog class="dialog dialog-leaderboard">
+            <div class="dialog__header">
+                <h2 class="dialog__header-title">Leaderboard</h2>
+            </div>
+            <div class="dialog__body">
+                <ul class="dialog__list">
+                    <li class="dialog__item">
+                        <div class="dialog__item-position">1.</div>
+                        <div class="dialog__item-date">DD.MM.YYYY</div>
+                        <div class="dialog__item-score">Score</div>
+                    </li>
+                    <li class="dialog__item">
+                        <div class="dialog__item-position">2.</div>
+                        <div class="dialog__item-date">DD.MM.YYYY</div>
+                        <div class="dialog__item-score">Score</div>
+                    </li>
+                </ul>
+                <div class="dialog__footer">
+                    <button class="dialog__btn-close secondary-btn">Close</button>
+                </div>
+
+            </div>
+        </dialog>
+    </div>
+    <div class="container">
+        <header class="header">
+            <div class="header__btns">
+                <button class="header__btn primary-btn">
+                    <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    New Game
+                </button>
+                <button class="header__btn secondary-btn">Leaderboard</button>
+            </div>
+        </header>
+        <main>
+            <div class="game-score">
+                <div class="game-score__item">
+                    <span class="game-score__item-label">Moves:</span>
+                    <span class="game-score__item-value">0</span>
+                </div>
+                <div class="game-score__item">
+                    <span class="game-score__item-label">Found pairs:</span>
+                    <div class="game-score__item-value">0</div>
+                </div>
+            </div>
+
+            <div class="game-board">
+                <ul class="game-board__list">
+                    <!-- 1 -->
+                    <li class="game-board__item">
+                        <div class="game-board__item-card open">
+                            <div class="game-board__item-card-front">
+                                <img src="./images/fox.png" alt="Tangram Boat" />
+                            </div>
+                            <div class="game-board__item-card-back">
+                                <img src="./images/card-back.png" alt="card-back" />
+                            </div>
+                        </div>
+                    </li>
+                    <li class="game-board__item">
+                        <div class="game-board__item-card">
+                            <div class="game-board__item-card-front">
+                                <img src="./images/cat.png" alt="Tangram Boat" />
+
+                            </div>
+                            <div class="game-board__item-card-back">
+                                <img src="./images/card-back.png" alt="card-back" />
+                            </div>
+                        </div>
+                    </li>
+                    <li class="game-board__item">
+                        <div class="game-board__item-card">
+                            <div class="game-board__item-card-front">
+                                <img src="./images/house.png" alt="Tangram Boat" />
+                            </div>
+                            <div class="game-board__item-card-back">
+                                <img src="./images/card-back.png" alt="card-back" />
+                            </div>
+                        </div>
+                    </li>
+                    <li class="game-board__item">
+                        <div class="game-board__item-card">
+                            <div class="game-board__item-card-front">
+                                <img src="./images/fish.png" alt="Tangram Boat" />
+                            </div>
+                            <div class="game-board__item-card-back">
+                                <img src="./images/card-back.png" alt="card-back" />
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- 2 -->
+                    <!-- 3 -->
+                    <!-- 4 -->
+
+                </ul>
+            </div>
+        </main>
+
+    </div>
+    <script type="module" src="./js/index.js"></script>
+</body>
+
+</html>
