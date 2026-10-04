@@ -1,6 +1,8 @@
 let firstCard = null;
 let secondCard = null;
 let lockBoard = false;
+let foundPairs = 0;
+let moves = 0;
 
 
 function openCard(e) {
@@ -24,15 +26,22 @@ function openCard(e) {
 
 function checkMatchingCards(firstCard, secondCard) {
     const isMatch = firstCard.dataset.title === secondCard.dataset.title;
+    const scoreValues = document.querySelectorAll(".game-score__item-value");
 
     if (isMatch) {
         firstCard.removeEventListener("click", openCard);
         secondCard.removeEventListener("click", openCard);
+        foundPairs++;
+        scoreValues[1].textContent = foundPairs;
         resetBoard();
     } else {
         lockBoard = true;
         setTimeout(closePairCards, 800);
     }
+
+    moves++;
+    scoreValues[0].textContent = moves;
+
 }
 
 function closePairCards() {
