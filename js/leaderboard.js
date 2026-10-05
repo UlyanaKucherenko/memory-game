@@ -11,7 +11,6 @@ function renderLeaderboardList() {
     const sortedData = sortResults(dataResults).slice(0, 10);
 
     sortedData.forEach((item, i) => {
-        console.log(item.date);
         const li = document.createElement("li");
         li.classList.add("dialog__item");
 
