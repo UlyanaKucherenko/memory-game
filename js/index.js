@@ -12,8 +12,6 @@ function startGame() {
     resetBoard();
     resetCounters();
     generateCards();
-    const dialogBox = document.getElementById("win-dialog");
-    dialogBox.classList.remove("open");
 };
 
 renderLayout();
@@ -172,21 +170,15 @@ function renderLayout() {
     gameBoardList.className = "game-board__list";
 
 
-    body.appendChild(container);
-    container.appendChild(header);
+    headerBtns.append(headerBtn1, headerBtn2);
     header.appendChild(headerBtns);
-    headerBtns.appendChild(headerBtn1);
-    headerBtns.appendChild(headerBtn2);
-    container.appendChild(main);
-    main.appendChild(gameScore);
-    gameScore.appendChild(gameScoreItem1);
-    gameScoreItem1.appendChild(gameScoreItem1Label);
-    gameScoreItem1.appendChild(gameScoreItem1Value);
-    gameScore.appendChild(gameScoreItem2);
-    gameScoreItem2.appendChild(gameScoreItem2Label);
-    gameScoreItem2.appendChild(gameScoreItem2Value);
-    main.appendChild(gameBoard);
+    gameScoreItem1.append(gameScoreItem1Label, gameScoreItem1Value);
+    gameScoreItem2.append(gameScoreItem2Label, gameScoreItem2Value);
+    gameScore.append(gameScoreItem1, gameScoreItem2);
     gameBoard.appendChild(gameBoardList);
+    main.append(gameScore, gameBoard);
+    container.append(header, main);
+    body.appendChild(container);
 
     headerBtn1.addEventListener("click", startGame);
     headerBtn2.addEventListener('click', openLeaderboardDialog);
@@ -197,7 +189,7 @@ function renderCards(cards) {
     const listCards = document.querySelector(".game-board__list");
     listCards.replaceChildren();
 
-    cards.map((card) => {
+    cards.forEach((card) => {
         const cardWrap = document.createElement("li");
         cardWrap.className = "game-board__item";
         cardWrap.dataset.title = card.title;
@@ -214,12 +206,13 @@ function renderCards(cards) {
         cardBackImg.src = "./images/card-back.png";
         cardBackImg.alt = "card-back";
 
-        listCards.appendChild(cardWrap);
-        cardWrap.appendChild(cardFront);
-        cardWrap.appendChild(cardBack);
-        cardFront.appendChild(cardFrontImg);
-        cardBack.appendChild(cardBackImg);
 
-        cardWrap.addEventListener("click", openCard);
+
+       cardFront.appendChild(cardFrontImg);
+       cardBack.appendChild(cardBackImg);
+       cardWrap.append(cardFront, cardBack);
+       listCards.appendChild(cardWrap);
+
+       cardWrap.addEventListener("click", openCard);
     });
 }

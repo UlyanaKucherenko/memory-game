@@ -39,8 +39,12 @@ export function renderWinDialog(startGame) {
     dialogBox.appendChild(dialog);
     document.body.appendChild(dialogBox);
 
-    dialogBtnNew.addEventListener("click", startGame);
     const closeDialog = () => dialogBox.classList.remove("open");
+
+    dialogBtnNew.addEventListener("click", () => {
+        closeDialog();
+        startGame();
+    });
 
     dialogBtnClose.addEventListener("click", () => {
         closeDialog();
