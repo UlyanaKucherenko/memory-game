@@ -1,9 +1,29 @@
+import { renderLeaderboardDialog, openLeaderboardDialog } from "./leaderboard.js";
+
 let firstCard = null;
 let secondCard = null;
 let lockBoard = false;
 let foundPairs = 0;
 let moves = 0;
 
+function saveGameResult() {
+    let leaderboardList = [];
+    const saveData = localStorage.getItem("leaderboardList");
+
+    if (saveData) {
+        leaderboardList = JSON.parse(saveData);
+    }
+    const date = new Date();
+    const fullDate = date.toLocaleDateString("ru-RU");
+    const scoreItem = {
+        date: fullDate,
+        moves: moves,
+    }
+
+    leaderboardList.push(scoreItem);
+    localStorage.setItem("leaderboardList", JSON.stringify(leaderboardList));
+
+}
 
 function openCard(e) {
     if (lockBoard) return;
@@ -47,6 +67,7 @@ function checkMatchingCards(firstCard, secondCard) {
         dialogBox.classList.add("open");
         const dialogScore = document.querySelector(".dialog__score-value");
         dialogScore.textContent = moves;
+        saveGameResult()
     }
 }
 
@@ -146,6 +167,8 @@ function renderLayout() {
     main.appendChild(gameBoard);
     gameBoard.appendChild(gameBoardList);
 
+    headerBtn2.addEventListener('click', openLeaderboardDialog);
+
 }
 
 renderLayout();
@@ -203,7 +226,7 @@ function renderWinDialog() {
     const dialogScoreValue = document.createElement("span");
     dialogScoreValue.classList.add("dialog__score-value");
     dialogScoreValue.textContent = "0";
-    
+
     const dialogFooter = document.createElement("div");
     dialogFooter.classList.add("dialog__footer");
     const dialogBtnNew = document.createElement("button");
@@ -241,3 +264,4 @@ function renderWinDialog() {
 }
 
 renderWinDialog();
+renderLeaderboardDialog();
