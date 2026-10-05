@@ -6,6 +6,7 @@ let secondCard = null;
 let lockBoard = false;
 let foundPairs = 0;
 let moves = 0;
+let flipTimer = null;
 
 function startGame() {
     resetBoard();
@@ -22,6 +23,7 @@ renderLeaderboardDialog();
 startGame();
 
 function resetBoard() {
+    clearTimeout(flipTimer);
     firstCard = null;
     secondCard = null;
     lockBoard = false;
@@ -85,7 +87,7 @@ function checkMatchingCards(firstCard, secondCard) {
         resetBoard();
     } else {
         lockBoard = true;
-        setTimeout(closePairCards, 800);
+        flipTimer = setTimeout(closePairCards, 1200);
     }
 
     moves++;
