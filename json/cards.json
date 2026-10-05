@@ -1,0 +1,45 @@
+{
+    "cards": [
+        {
+            "id": 0,
+            "image": "./images/cat.png",
+            "title": "cat"
+        },
+        {
+            "id": 1,
+            "image": "./images/butterfly.png",
+            "title": "butterfly"
+        },
+        {
+            "id": 2,
+            "image": "./images/fox.png",
+            "title": "fox"
+        },
+        {
+            "id": 3,
+            "image": "./images/fish.png",
+            "title": "fish"
+        },
+        {
+            "id": 4,
+            "image": "./images/house.png",
+            "title": "house"
+        },
+        {
+            "id": 5,
+            "image": "./images/rabbit.png",
+            "title": "rabbit"
+        },
+        {
+            "id": 6,
+            "image": "./images/swan.png",
+            "title": "swan"
+        },
+        {
+            "id": 7,
+            "image": "./images/sailboat.png",
+            "title": "sailboat"
+        }
+
+    ]
+}
