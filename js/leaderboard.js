@@ -8,6 +8,14 @@ function renderLeaderboardList() {
     const list = document.querySelector(".dialog__list");
     list.replaceChildren();
 
+    if (dataResults.length === 0) {
+        const liEmpty = document.createElement("li");
+        liEmpty.classList.add("dialog__item");
+        liEmpty.textContent = "No records yet";
+        list.appendChild(liEmpty);
+        return;
+    }
+
     const sortedData = sortResults(dataResults).slice(0, 10);
 
     sortedData.forEach((item, i) => {
@@ -49,9 +57,6 @@ export function renderLeaderboardDialog() {
     dialogBody.classList.add("dialog__body");
     const dialogList = document.createElement("ul");
     dialogList.classList.add("dialog__list");
-    const dialogListItem = document.createElement("li");
-    dialogListItem.classList.add("dialog__list-item");
-    dialogListItem.textContent = "no records yet";
 
 
     const dialogFooter = document.createElement("div");
@@ -61,7 +66,6 @@ export function renderLeaderboardDialog() {
     dialogBtnClose.textContent = "Close";
 
     dialogHeader.appendChild(dialogHeaderTitle);
-    dialogList.appendChild(dialogListItem)
     dialogBody.appendChild(dialogList);
     dialogFooter.appendChild(dialogBtnClose);
     dialog.append(dialogHeader, dialogBody, dialogFooter);
